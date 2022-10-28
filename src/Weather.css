@@ -1,0 +1,42 @@
+body {
+    font-family: 'Baloo 2', cursive;
+}
+.Weather {
+    border: 1px solid #fdb44b;
+    background: linear-gradient(44.8deg, 
+    rgba(255, 136, 102, 0.67) -53.1%, 
+    rgba(255, 221, 136, 0.28) 49%);    
+    border-radius: 5px;
+    color: #00204a;
+    padding: 16px;
+    margin: 10px auto;
+    max-width: 600px;
+}
+.form-control {
+    margin: 15px;
+}
+.btn {
+    background-color: #fdb44b;
+    color: #00204a;
+    border: #fdb44b;
+    padding: 4px;
+    font-size: 20px;
+    margin: 15px;
+}
+.btn-primary:hover {
+   background-color: #00204a;
+   color: #fdb44b;
+   box-shadow: 0 0 0 3px #fdb44b;
+   transition: 0.28s;
+}
+.city-name{
+font-size: 45px;
+margin: 12px;
+}
+.basic-info {
+    list-style: none;
+}
+.added-info{
+    list-style: none;
+}
+    
