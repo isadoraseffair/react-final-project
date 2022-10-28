@@ -11,12 +11,13 @@ export default function Weather () {
                 type="search"
                 placeholder="Enter a city here"
                 className="form-control"
+                autoFocus="on"
               />
             </div>
             <div className="col-3">
               <input type="submit" 
               value="Search" 
-              className="btn btn-primary w-95" />
+              className="btn btn-primary w-100" />
             </div>
           </div> 
         </form>
@@ -31,7 +32,8 @@ export default function Weather () {
               src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
               alt="Cloudy"
             />
-            6ºC
+            <span className="temp">6</span>
+            <span className="tempUnit">ºC</span>
           </div>
           <div className="col-6">
             <ul className="added-info">

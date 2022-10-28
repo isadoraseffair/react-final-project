@@ -4,3 +4,11 @@
     font-size: 62px;
     color: #00204a;
 }
+.App {
+    margin: 30px auto;
+    max-width: 600px;
+}
+footer{
+    font-size: 14px;
+    margin: 10px 0;
+}

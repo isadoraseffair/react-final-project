@@ -9,11 +9,10 @@ body {
     border-radius: 5px;
     color: #00204a;
     padding: 16px;
-    margin: 10px auto;
-    max-width: 600px;
+
 }
 .form-control {
-    margin: 15px;
+    margin: 10px 0 auto;
 }
 .btn {
     background-color: #fdb44b;
@@ -21,7 +20,7 @@ body {
     border: #fdb44b;
     padding: 4px;
     font-size: 20px;
-    margin: 15px;
+    margin: 10px 0 auto;
 }
 .btn-primary:hover {
    background-color: #00204a;
@@ -32,6 +31,16 @@ body {
 .city-name{
 font-size: 45px;
 margin: 12px;
+}
+img {
+    margin: 8px;
+}
+.temp{
+    font-size: 65px;
+    line-height: 65px;
+}
+.tempUnit {
+font-size: 25px;
 }
 .basic-info {
     list-style: none;
