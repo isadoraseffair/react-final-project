@@ -32,12 +32,16 @@ body {
 font-size: 45px;
 margin: 12px;
 }
+.condition {
+    text-transform: capitalize;
+}
 img {
-    margin: 8px;
+    margin: 8px ;
 }
 .temp{
-    font-size: 65px;
+    font-size: 80px;
     line-height: 65px;
+    
 }
 .tempUnit {
 font-size: 25px;
