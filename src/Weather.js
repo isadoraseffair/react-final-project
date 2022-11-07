@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FormattedDate from "./FormattedDate";
 import "./Weather.css";
+import CelToFeir from "./CelToFeir";
 import axios from "axios";
 
 export default function Weather() {
@@ -72,8 +73,7 @@ export default function Weather() {
         <div className="row">
           <div className="col-6">
             <img src={conditionIcon} alt="Cloudy" />
-            <span className="temp">{Math.round(temp)}</span>
-            <span className="tempUnit">ºC</span>
+            <CelToFeir celsius={Math.round(temp)} />
           </div>
           <div className="col-6">
             <ul className="added-info">

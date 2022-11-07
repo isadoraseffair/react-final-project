@@ -40,15 +40,17 @@ margin: 12px;
     text-transform: capitalize;
 }
 img {
-    margin: 8px ;
+    margin: 8px;
 }
 .temp{
-    font-size: 80px;
+    font-size: 65px;
     line-height: 65px;
-    
 }
 .tempUnit {
-font-size: 25px;
+    font-size: 15px;
+    margin-left: 5px;
+    position: relative;
+    top: -34px;
 }
 .basic-info {
     list-style: none;
