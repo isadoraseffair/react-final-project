@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import FormattedDate from "./FormattedDate";
 import "./Weather.css";
 import axios from "axios";
 
 export default function Weather() {
   let [city, setCity] = useState(null);
+  let [time, setTime] = useState(null);
   let [ready, setReady] = useState(false);
   let [condition, setCondition] = useState(null);
   let [conditionIcon, setConditionIcon] = useState(null);
@@ -14,13 +16,13 @@ export default function Weather() {
 
   function handleResponse(response) {
     setCity(response.data.city);
+    setTime(response.data.time * 1000);
     setCondition(response.data.condition.description);
     setConditionIcon(response.data.condition.icon_url);
     setTemp(response.data.temperature.current);
     setFeelsLike(response.data.temperature.feels_like);
     setHumidity(response.data.temperature.humidity);
     setWind(response.data.wind.speed);
-    console.log(response);
     setReady(true);
   }
 
@@ -48,7 +50,9 @@ export default function Weather() {
         </form>
         <h1 className="city-name">{city}</h1>
         <ul className="basic-info">
-          <li>Wednesday</li>
+          <li>
+            <FormattedDate date={time} />
+          </li>
           <li className="condition">{condition}</li>
         </ul>
         <div className="row">
@@ -69,7 +73,7 @@ export default function Weather() {
     );
   } else {
     let apiKey = "ce24471d03dca09t3f6f930b11e93o5e";
-    let city = "Manaus";
+    let city = "Lisbon";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
     axios.get(apiUrl).then(handleResponse);
