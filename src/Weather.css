@@ -3,13 +3,17 @@ body {
 }
 .Weather {
     border: 1px solid #fdb44b;
-    background: linear-gradient(44.8deg, 
+    background:
+    linear-gradient(44.8deg, 
     rgba(255, 136, 102, 0.67) -53.1%, 
     rgba(255, 221, 136, 0.28) 49%);    
+    background-image: 
+    url("https://thumbs.dreamstime.com/b/c%C3%A9u-azul-com-sol-e-nuvens-46330790.jpg");
     border-radius: 5px;
-    color: #00204a;
+    color: white;
     padding: 16px;
-
+    opacity: 0.92;
+    
 }
 .form-control {
     margin: 10px 0 auto;

@@ -5,6 +5,7 @@ import axios from "axios";
 
 export default function Weather() {
   let [city, setCity] = useState(null);
+  let [currentCity, setCurrentCity] = useState("");
   let [time, setTime] = useState(null);
   let [ready, setReady] = useState(false);
   let [condition, setCondition] = useState(null);
@@ -15,6 +16,7 @@ export default function Weather() {
   let [wind, setWind] = useState(null);
 
   function handleResponse(response) {
+    console.log(response);
     setCity(response.data.city);
     setTime(response.data.time * 1000);
     setCondition(response.data.condition.description);
@@ -26,20 +28,32 @@ export default function Weather() {
     setReady(true);
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    let apiKey = "ce24471d03dca09t3f6f930b11e93o5e";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${currentCity}&key=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function onCityChange(event) {
+    setCurrentCity(event.target.value);
+  }
   if (ready) {
     return (
       <div className="Weather">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="row">
-            <div className="col-9">
+            <div className="col-9 bckgrnd">
               <input
                 type="search"
                 placeholder="Enter a city here"
                 className="form-control"
                 autoFocus="on"
+                onChange={onCityChange}
               />
             </div>
-            <div className="col-3">
+            <div className="col-3 bckgrnd">
               <input
                 type="submit"
                 value="Search"
@@ -48,7 +62,7 @@ export default function Weather() {
             </div>
           </div>
         </form>
-        <h1 className="city-name">{city}</h1>
+        <h1 className="city-name bckgrnd">{city}</h1>
         <ul className="basic-info">
           <li>
             <FormattedDate date={time} />
@@ -73,10 +87,9 @@ export default function Weather() {
     );
   } else {
     let apiKey = "ce24471d03dca09t3f6f930b11e93o5e";
-    let city = "Lisbon";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Lisbon&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
+
     return "Loading...";
   }
 }
