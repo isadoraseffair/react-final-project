@@ -10,21 +10,21 @@ export default function DailyForecast() {
     setForecast(response.data.daily);
     setLoaded(true);
   }
-  
+
   if (loaded) {
     return (
       <div className="forecast">
         <div className="row">
-          {forecast.map(function(dailyForecast,index) {
-            if (index >0 && index <6) {
-                return (
-               <div className="col" key={index}>
-            <DetailForecast data={dailyForecast} />
-          </div>
-            );
+          {forecast.map(function (dailyForecast, index) {
+            if (index > 0 && index < 6) {
+              return (
+                <div className="col" key={index}>
+                  <DetailForecast data={dailyForecast} />
+                </div>
+              );
             }
-          return null;
-          })};
+            return null;
+          })}
         </div>
       </div>
     );
@@ -36,5 +36,4 @@ export default function DailyForecast() {
 
     return null;
   }
-  
 }
