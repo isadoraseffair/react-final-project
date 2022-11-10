@@ -3,6 +3,7 @@ import FormattedDate from "./FormattedDate";
 import "./Weather.css";
 import CelToFeir from "./CelToFeir";
 import axios from "axios";
+import DailyForecast from"./DailyForecast"
 
 export default function Weather() {
   let [city, setCity] = useState(null);
@@ -83,6 +84,7 @@ export default function Weather() {
             </ul>
           </div>
         </div>
+        <DailyForecast />
       </div>
     );
   } else {
