@@ -23,7 +23,7 @@ export default function DailyForecast() {
           </div>
             );
             }
-          
+          return null;
           })};
         </div>
       </div>
@@ -36,4 +36,5 @@ export default function DailyForecast() {
 
     return null;
   }
+  
 }
