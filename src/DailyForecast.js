@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import DetailForecast from "./DetailForecast";
 
 export default function DailyForecast() {
   let [loaded, setLoaded] = useState(false);
@@ -9,28 +10,25 @@ export default function DailyForecast() {
     setForecast(response.data.daily);
     setLoaded(true);
   }
-
+  
   if (loaded) {
     return (
       <div className="forecast">
         <div className="row">
           <div className="col">
-            <div className="forecastDay">{(forecast[0].temperature.day)}</div>
-            <div>
-              <img
-                src={forecast[0].condition.icon_url}
-                alt="iconImg"
-                className="forecastIcon"
-              ></img>
-            </div>
-            <div className="maxMinTemp">
-              <span className="maxTemp">
-                {Math.round(forecast[0].temperature.maximum)}º
-              </span>
-              <span className="minTemp">
-                {Math.round(forecast[0].temperature.minimum)}º
-              </span>
-            </div>
+            <DetailForecast data={forecast[1]} />
+          </div>
+          <div className="col">
+            <DetailForecast data={forecast[2]} />
+          </div>
+          <div className="col">
+            <DetailForecast data={forecast[3]} />
+          </div>
+          <div className="col">
+            <DetailForecast data={forecast[4]} />
+          </div>
+          <div className="col">
+            <DetailForecast data={forecast[5]} />
           </div>
         </div>
       </div>
