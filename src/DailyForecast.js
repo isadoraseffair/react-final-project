@@ -15,21 +15,16 @@ export default function DailyForecast() {
     return (
       <div className="forecast">
         <div className="row">
-          <div className="col">
-            <DetailForecast data={forecast[1]} />
+          {forecast.map(function(dailyForecast,index) {
+            if (index <5) {
+                return (
+               <div className="col" key={index}>
+            <DetailForecast data={dailyForecast} />
           </div>
-          <div className="col">
-            <DetailForecast data={forecast[2]} />
-          </div>
-          <div className="col">
-            <DetailForecast data={forecast[3]} />
-          </div>
-          <div className="col">
-            <DetailForecast data={forecast[4]} />
-          </div>
-          <div className="col">
-            <DetailForecast data={forecast[5]} />
-          </div>
+            );
+            }
+          
+          })};
         </div>
       </div>
     );
