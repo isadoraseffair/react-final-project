@@ -8,6 +8,7 @@ import DailyForecast from"./DailyForecast"
 export default function Weather() {
   let [city, setCity] = useState(null);
   let [currentCity, setCurrentCity] = useState("");
+  let [coord, setCoord] = useState (null)
   let [time, setTime] = useState(null);
   let [ready, setReady] = useState(false);
   let [condition, setCondition] = useState(null);
@@ -18,8 +19,9 @@ export default function Weather() {
   let [wind, setWind] = useState(null);
 
   function handleResponse(response) {
-    console.log(response);
+  
     setCity(response.data.city);
+    setCoord (response.data.coordinates);
     setTime(response.data.time * 1000);
     setCondition(response.data.condition.description);
     setConditionIcon(response.data.condition.icon_url);
@@ -84,7 +86,7 @@ export default function Weather() {
             </ul>
           </div>
         </div>
-        <DailyForecast />
+        <DailyForecast coord={coord}/>
       </div>
     );
   } else {
